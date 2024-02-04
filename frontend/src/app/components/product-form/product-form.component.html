@@ -1,0 +1,51 @@
+<div>
+    @if(isEdit){<h1 style="text-align: center;">Edit Product</h1>}
+    @else {<h1 style="text-align: center;">Add Product</h1>}
+    
+    <form  [formGroup]="productForm" (ngSubmit)="save()">
+        <div class="w-full flex flex-wrap">
+            <mat-form-field class="w-full">
+                <mat-label>name</mat-label>
+                <input 
+                type="text" 
+                matInput 
+                placeholder="name"
+                formControlName="name"
+                />
+ 
+            </mat-form-field>
+        </div>
+
+        <div class="w-full flex flex-wrap">
+            <mat-form-field class="w-full">
+                <mat-label>description</mat-label>
+                <input 
+                type="text" 
+                matInput 
+                placeholder="description"
+                formControlName="description"
+                />
+ 
+            </mat-form-field>
+        </div>
+
+
+        <div class="w-full flex flex-wrap">
+            <mat-form-field class="w-full">
+                <mat-label>price</mat-label>
+                <input 
+                type="number" 
+                matInput 
+                placeholder="price"
+                formControlName="price"
+                />
+ 
+            </mat-form-field>
+        </div>
+        <div class="flex justify-center">
+            @if(isEdit){<button mat-raised-button color="primary" [disabled]="!productForm.valid">Update</button>}
+            @else {<button mat-raised-button color="primary" [disabled]="!productForm.valid">Add</button>}
+             
+        </div>
+    </form>
+</div>
